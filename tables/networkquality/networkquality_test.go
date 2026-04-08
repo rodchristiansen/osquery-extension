@@ -79,9 +79,8 @@ func TestRunNetworkQuality(t *testing.T) {
 						assert.Equal(t, expectedOutput, output)
 					}
 					if tt.name == "Successful execution with float responsiveness" {
-						assert.Equal(t, 20500, output.DlThroughput)
-						assert.Equal(t, 10500, output.UlThroughput)
-						assert.InDelta(t, 1180.154, output.Responsiveness, 0.000001)
+						expectedOutput := NetworkQualityOutput{DlThroughput: 20500, UlThroughput: 10500, Responsiveness: 1180.154}
+						assert.Equal(t, expectedOutput, output)
 					}
 				} else {
 					assert.Empty(t, output)
